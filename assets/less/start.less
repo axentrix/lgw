@@ -11,9 +11,11 @@
 --red: rgba(122,18,28,1);
 --lightgreen:#818439;
 }
-
+html{
+  overflow:hidden;
+}
 body, html{
-  
+  overflow:hidden;
   font-family:"Exo", sans-serif;
   font-size:16px;
 
@@ -22,6 +24,8 @@ body, html{
   color:@white;
   font-weight:300;
   overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   background-color:@black;
   }
   
@@ -768,23 +772,28 @@ display:flex;
   z-index:997;
 }
 .section-footer{
-  overflow:hidden;
+  
   width:100%;
   height:100vh;
 display:flex;
 justify-content:center;
+position:relative;
   .hat{
 
-    
+    position:relative;
 display:flex;
+
 justify-content:center;
 align-items:center;
-width:80vw;
-height:auto;
+width:100vw;
+height:100vh;
+bottom:0;
 &>img{
 z-index:-1;
   position:absolute;
   bottom:0;
+  height:90vh;
+  width:auto;
 }
 ul{
 
@@ -826,6 +835,8 @@ font-weight:600;
     border:solid 20px @secondarycolor;
     background:@black;
     color:@white;
+    border-radius:50%;
+    display:none;
 
     
   }

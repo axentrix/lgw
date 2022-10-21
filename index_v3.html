@@ -72,7 +72,7 @@
 <a href="#" id="mint-button" class="ml-2"><img src="assets/images/mintnotstarted.svg"></a>
 </div></div></div>
 </div>
-</div></div>
+</div></div><div class="section-medallion-empty"></div>
      </section>   
     
      
@@ -117,7 +117,19 @@
 
         </div>
 
-
+        <div id="popup">
+          <div class="popup-content">
+          <div class="medallion">
+            <img src="assets/images/medallions/1.png"></div>
+          <ul class="nft-features">
+            <li>Purchased:<strong>Never</strong></strng></li>
+          <li>Price: 0.03⟠</li>
+          
+          </ul>
+          
+          </div>
+          
+          </div>
 
     </section>  
     <section class="section-title" data-bgcolor="#8927D6">
@@ -328,19 +340,7 @@
     </section>
 
 </div>
-<div id="popup">
-<div class="popup-content">
-<div class="medallion">
-  <img src="assets/images/medallions/1.png"></div>
-<ul class="nft-features">
-  <li>Purchased:<strong>Never</strong></strng></li>
-<li>Price: 0.03⟠</li>
 
-</ul>
-
-</div>
-
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
 
@@ -507,7 +507,29 @@ const tl = gsap.timeline({
         ease: "power5.easeIn"
        }, "+=4")
  
+       const tb = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".section-medallion-empty",
+    scroller:".smooth-scroll",
+    pin: false,
+    scrub: 1,
+    start: "top bottom",
+    end: "bottom top",
+   //pinSpacing:false
+ 
+  }
+})
+
+tb
+.to(".witch", {
+        
+        duration:1,
+         
+        css: {translateY:160+'%', translateX:-160+'%', rotation:-90+'deg'},
+         ease: "power3.easeIn"
+    });
   
+
       const tt = gsap.timeline({
   scrollTrigger: {
     trigger: ".section-medallion",
@@ -532,13 +554,6 @@ const tl = gsap.timeline({
  }, "+=0")
 
 
-  .to(".witch", {
-        
-       duration:1,
-        
-       css: {translateY:160+'%', translateX:-160+'%', rotation:-90+'deg'},
-        ease: "power3.easeIn"
-   }, "-=1")
  
 
 
@@ -586,7 +601,7 @@ const tl = gsap.timeline({
     pin: true,
     scrub: 1,
     start: "top top",
-    pinSpacing:false,
+    //pinSpacing:false,
     end: "bottom top"
    
  
@@ -608,7 +623,7 @@ const ww = gsap.timeline({
     pin: true,
     scrub: 1,
     start: "top top",
-   pinSpacing:false,
+  
     end: "bottom top"
  
   }
@@ -638,11 +653,9 @@ const ta = gsap.timeline({
     scroller:".smooth-scroll",
     pin: true,
     scrub: 1,
-    
+    //pinSpacing:true,
     start: "top top",
-    end: "bottom top",
-    markers:true,
-    id: "witch"
+    end: "bottom top"
  
   }
 })
@@ -671,7 +684,7 @@ ta
     scroller:".smooth-scroll",
     pin: true,
     scrub: 1,
-  
+    pinSpacing: false,
     start: "top top",
     end: "bottom top"
  
@@ -696,8 +709,11 @@ tfaq
     pin: true,
     scrub: 1,
     start: "top top",
-    end: "bottom top",
-    pinSpacing: false
+    end: "bottom bottom",
+    pinSpacing: false,
+    
+    markers:true,
+    id: "footer"
  
   }
 })
@@ -709,8 +725,8 @@ tf
         
         duration:1,
          
-        css: {translateY: -220+'%'},
-         ease: "elastic.out(1, 0.3)"
+        css: {translateY: 200+'%'},
+         ease: "elastic.out(1, 0.8)"
     })
 
 
