@@ -90,7 +90,7 @@
 
     
     </p>
-    <a href="#"class="btn btn-secondary">Purchase Medallion</a>
+    <a href="#"class="btn btn-secondary open-popup-link">Purchase Medallion</a>
     </div>
 
 </div>
@@ -270,9 +270,9 @@
     </div>
 </div>
 <div class="col-md-6">
-
+<div class="flying-witch-holder">
 <div class="flying-witch">
-<img src="assets/images/flying_witch.svg"></div>
+<img src="assets/images/flying_witch.svg"></div></div>
 </div>
 
 </div>
@@ -328,7 +328,19 @@
     </section>
 
 </div>
+<div id="popup">
+<div class="popup-content">
+<div class="medallion">
+  <img src="assets/images/medallions/1.png"></div>
+<ul class="nft-features">
+  <li>Purchased:<strong>Never</strong></strng></li>
+<li>Price: 0.03⟠</li>
 
+</ul>
+
+</div>
+
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
 
@@ -342,11 +354,40 @@
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
 
     <script>
 $( document ).ready(function () {
+  TweenObj = {};
+$('.open-popup-link').magnificPopup({
+  type:'inline',
+  midClick: true,
+  showCloseBtn: false,
+  removalDelay: 800,
+  callbacks: {
+    open: function() {
+      TweenObj.show = TweenMax.fromTo('.mfp-container', .8, {opacity: 0, scale: 1, x: 80}, {ease: Power2.easeIn, opacity: 1, scale: 1, x: 0});
+      TweenObj.open = TweenMax.to('#migpop_custom_nav', .8, { delay:.6, y: 0, opacity: .8});
+    },
+    beforeClose: function() {
+      if(TweenObj.open !== undefined) TweenObj.open.kill();
+      TweenObj.close = TweenMax.to('#migpop_custom_nav', .8, { y: 10, opacity: 0});
+      TweenObj.hide = TweenMax.to('.mfp-container', .6, {ease: Power2.easeIn, opacity: 0, x: 80});
+    },
+    close: function() {
+    }
+  }
+});
+var migpop_custom_nav = $('#migpop_custom_nav');
+TweenMax.set(migpop_custom_nav,{ y: 10, opacity: 0});
+migpop_custom_nav.on('click', function(){
+  $.magnificPopup.close();
+});
+$('#popup').css({
+  marginBottom: migpop_custom_nav.outerHeight() + 20
+});
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -471,11 +512,11 @@ const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".section-medallion",
     scroller:".smooth-scroll",
-    pin: false,
+    pin: true,
     scrub: 1,
-    start: "top bottom",
+    start: "top top",
     end: "bottom top",
-   pinSpacing:false
+   //pinSpacing:false
  
   }
 });
@@ -567,7 +608,7 @@ const ww = gsap.timeline({
     pin: true,
     scrub: 1,
     start: "top top",
-   
+   pinSpacing:false,
     end: "bottom top"
  
   }
@@ -597,7 +638,7 @@ const ta = gsap.timeline({
     scroller:".smooth-scroll",
     pin: true,
     scrub: 1,
-    pinSpacing:false,
+    
     start: "top top",
     end: "bottom top",
     markers:true,
@@ -607,11 +648,11 @@ const ta = gsap.timeline({
 })
 
 ta
-.to(".flying-witch", {
+.to(".flying-witch-holder", {
         
         duration:1,
          
-        css: {translateX: -180+'%', rotation:90+'deg' },
+        css: {translateY: -280+'%', translateX: -150+'%', rotation:30+'deg' },
          ease: "power3.easeIn"
     })
   

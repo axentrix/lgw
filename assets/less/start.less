@@ -648,10 +648,10 @@ display:flex;
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-26px);
+    transform: translateY(-36px);
   }
   99% {
-    transform: translateY(-24px);
+    transform: translateY(-2px);
   }
 }
 
@@ -678,6 +678,7 @@ display:flex;
   animation-iteration-count: infinite;
   display:block;
   z-index:40000;
+  transform:translate(0,0);
 
 }
 .section-about{
@@ -688,6 +689,7 @@ align-items:center;
 justify-content:center;
   overflow:hidden;
   position:relative;
+  background:@secondarycolor;
 }
 .houses{
 width: 50vw;
@@ -731,6 +733,10 @@ z-index:-1;
 }
 
 .section-faq{
+
+  align-items:center;
+  justify-content:center;
+  display:flex;
 .icon{
 transition:all 0.4s;
   display:flex;
@@ -808,4 +814,18 @@ font-weight:600;
 .navbar-inner-scrolled {
     height: 50px;
     background: red;
+  }
+
+
+  #popup{
+
+
+    width:360px;
+    height:360px;
+    position:fixed;
+    border:solid 20px @secondarycolor;
+    background:@black;
+    color:@white;
+
+    
   }

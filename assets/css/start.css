@@ -1012,10 +1012,10 @@ label {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-26px);
+    transform: translateY(-36px);
   }
   99% {
-    transform: translateY(-24px);
+    transform: translateY(-2px);
   }
 }
 .section-title {
@@ -1024,6 +1024,10 @@ label {
   justify-content: center;
   flex-direction: column;
 }
+.section-witches {
+  height: 100vh;
+  position: relative;
+}
 .flying-witch {
   position: absolute;
   animation-name: slightmovement;
@@ -1031,6 +1035,8 @@ label {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   display: block;
+  z-index: 40000;
+  transform: translate(0, 0);
 }
 .section-about {
   display: flex;
@@ -1039,6 +1045,8 @@ label {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  background: #72cd21;
 }
 .houses {
   width: 50vw;
@@ -1046,7 +1054,7 @@ label {
   position: absolute;
   right: 0;
   bottom: 0;
-  z-index: 88;
+  z-index: -1;
 }
 /*FAQ*/
 .accordion {
@@ -1072,6 +1080,11 @@ label {
 }
 .open {
   color: #af49ff;
+}
+.section-faq {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 .section-faq .icon {
   transition: all 0.4s;
@@ -1122,5 +1135,21 @@ label {
 }
 .section-footer .hat ul li a {
   font-weight: 600;
+  color: #ffffff;
+}
+.navbar-inner-up {
+  top: -50px;
+  transition: ease 0.4s;
+}
+.navbar-inner-scrolled {
+  height: 50px;
+  background: red;
+}
+#popup {
+  width: 360px;
+  height: 360px;
+  position: fixed;
+  border: solid 20px #72cd21;
+  background: #000000;
   color: #ffffff;
 }
