@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'gallient';
+    src: url('gallientregular-ezomp-webfont.woff2') format('woff2'),
+         url('gallientregular-ezomp-webfont.woff') format('woff'),
+         url('gallientregular-ezomp-webfont.ttf') format('truetype'),
+         url('gallientregular-ezomp-webfont.svg#gallientregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

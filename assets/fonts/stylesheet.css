@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Green Witch';
+    src: url('irishgrover-regular-webfont.eot');
+    src: url('irishgrover-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('irishgrover-regular-webfont.woff2') format('woff2'),
+         url('irishgrover-regular-webfont.woff') format('woff'),
+         url('irishgrover-regular-webfont.ttf') format('truetype'),
+         url('irishgrover-regular-webfont.svg#irish_groverregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

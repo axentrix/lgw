@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'g-regular';
+    src: url('gothampro-webfont.woff2') format('woff2'),
+         url('gothampro-webfont.woff') format('woff'),
+         url('gothampro-webfont.svg#gotham_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'g-bold';
+    src: url('gothampro-bold-webfont.woff2') format('woff2'),
+         url('gothampro-bold-webfont.woff') format('woff'),
+         url('gothampro-bold-webfont.svg#gotham_probold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
