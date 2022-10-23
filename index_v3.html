@@ -16,19 +16,22 @@
             
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel='stylesheet' id='mdb-css'  href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css?ver=5.9.2' media='all' />
     <link href="assets/css/start.css" rel="stylesheet">
 </head>
-<body class="loading">
+<body class="loading" id="witch-nft">
+  <div class="nav-inner "> <div class="container d-flex d-row align-items-center justify-content-center"><div class="smooth-logo logo">
+   
+    <h1></h1></div> 
   
-    <div class="nav-inner"><div class="smooth-logo"><img src="assets/images/logo.svg"></div> 
-    
-    
-    
-    <ul id="loco-nav">
+  
+  
+  <ul id="loco-nav">
 
-     
+   
 
 
 <li><a href="#">Mint</a></li> 
@@ -36,7 +39,8 @@
 <li><a href="#">Witches</a></li>   
 <li><a href="#">About</a></li> 
 <li><a href="#" class="btn btn-primary">Connect Wallet</a></li> 
-</ul>
+</ul></div>
+</div>
 </div>
 
     <div class="smooth-scroll" data-scroll-container>
@@ -90,11 +94,11 @@
 
     
     </p>
-    <a href="#"class="btn btn-secondary open-popup-link">Purchase Medallion</a>
+    <a href="#popup"class="btn btn-secondary open-popup-link" data-effect="mfp-newspaper">Purchase Medallion</a>
     </div>
 
 </div>
-<div class="col-md-6">
+<div class="col-md-6 d-flex justify-content-center align-items-center">
 
 <div id="medallion-container">
 
@@ -117,19 +121,7 @@
 
         </div>
 
-        <div id="popup">
-          <div class="popup-content">
-          <div class="medallion">
-            <img src="assets/images/medallions/1.png"></div>
-          <ul class="nft-features">
-            <li>Purchased:<strong>Never</strong></strng></li>
-          <li>Price: 0.03⟠</li>
-          
-          </ul>
-          
-          </div>
-          
-          </div>
+       
 
     </section>  
     <section class="section-title" data-bgcolor="#8927D6">
@@ -268,7 +260,7 @@
 
       <div class="container d-flex justify-content-center">
 
-<div class="row w-100">
+<div class="row w-100 align-items-center">
 
 <div class="col-md-6">
 
@@ -340,7 +332,19 @@
     </section>
 
 </div>
-
+<div id="popup" class="white-popup mfp-with-anim mfp-hide">
+  <div class="popup-content">
+  <div class="medallion">
+    <img src="assets/images/medallions/1.png"></div>
+  <ul class="nft-features">
+    <li>Purchased:<strong>Never</strong></strng></li>
+  <li>Price: 0.03⟠</li>
+  <li><a href="#" class="btn btn-primary">Buy Now</a></li>
+  </ul>
+  
+  </div>
+  
+  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
 
@@ -361,33 +365,17 @@
     <script>
 $( document ).ready(function () {
   TweenObj = {};
-$('.open-popup-link').magnificPopup({
-  type:'inline',
-  midClick: true,
-  showCloseBtn: false,
-  removalDelay: 800,
+  $('#witch-nft').magnificPopup({
+  delegate: 'a',
+  removalDelay: 500, //delay removal by X to allow out-animation
   callbacks: {
-    open: function() {
-      TweenObj.show = TweenMax.fromTo('.mfp-container', .8, {opacity: 0, scale: 1, x: 80}, {ease: Power2.easeIn, opacity: 1, scale: 1, x: 0});
-      TweenObj.open = TweenMax.to('#migpop_custom_nav', .8, { delay:.6, y: 0, opacity: .8});
-    },
-    beforeClose: function() {
-      if(TweenObj.open !== undefined) TweenObj.open.kill();
-      TweenObj.close = TweenMax.to('#migpop_custom_nav', .8, { y: 10, opacity: 0});
-      TweenObj.hide = TweenMax.to('.mfp-container', .6, {ease: Power2.easeIn, opacity: 0, x: 80});
-    },
-    close: function() {
+    beforeOpen: function() {
+       this.st.mainClass = this.st.el.attr('data-effect');
     }
-  }
+  },
+  midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
 });
-var migpop_custom_nav = $('#migpop_custom_nav');
-TweenMax.set(migpop_custom_nav,{ y: 10, opacity: 0});
-migpop_custom_nav.on('click', function(){
-  $.magnificPopup.close();
-});
-$('#popup').css({
-  marginBottom: migpop_custom_nav.outerHeight() + 20
-});
+
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -534,7 +522,7 @@ tb
   scrollTrigger: {
     trigger: ".section-medallion",
     scroller:".smooth-scroll",
-    pin: true,
+    pin: false,
     scrub: 1,
     start: "top top",
     end: "bottom top",
@@ -545,54 +533,10 @@ tb
 
 
   
-  
- tt
-.to(".circle", {
-   duration:1,
-    css: { scaleX:1100+'%', scaleY:1100+'%' },
-    ease: "power3.easeIn"
- }, "+=0")
-
-
- 
 
 
 
-  //.from("#title-medallion", {
-   // duration:1,
-   // css: {opacity:1},
-  //  ease: "power3.easeIn"
-  //}, "+=1")
-  //.from(".content p", {
-  //  duration:1,
-  //  css: {opacity:1},
-  //  ease: "power3.easeIn"
- // }, "+=2")
 
-
- .from(".medallion0", {
-        
-        duration:1,
-        
-        css: {translateX:180+'px', translateY:180+'px', rotation:10+'deg' },
-         ease: "power3.easeIn"
-    }, "+=2")
-
-    .from(".medallion4", {
-        
-        duration:1,
-        
-        css: {translateX:180+'px', translateY:180+'px', rotation:10+'deg' },
-         ease: "power3.easeIn"
-    }, "+=2")
-
-    .from(".medallion7", {
-        
-        duration:1,
-        
-        css: {translateX:180+'px', translateY:180+'px', rotation:10+'deg' },
-         ease: "power3.easeIn"
-    }, "+=3");
 
   const ttw = gsap.timeline({
   scrollTrigger: {
@@ -608,43 +552,27 @@ tb
   }
 });
 ttw
- .to(".circle", {
-    duration:2,
-    css: { scaleX:160+'%', scaleY:160+'%', opacity:0 },
+
+  .from("#title-stunning", {
+    duration:1,
+    css: { opacity:0 },
     ease: "power3.easeIn"
   });
-
-
   
 const ww = gsap.timeline({
   scrollTrigger: {
     trigger: ".section-witches",
     scroller:".smooth-scroll",
-    pin: true,
+    pin: false,
     scrub: 1,
     start: "top top",
   
     end: "bottom top"
  
   }
-})
+});
 
-ww
 
-.from("#witch-gallery", {
-        
-        duration:1,
-         
-        css: {opacity: 0},
-         ease: "power3.easeIn"
-    })
-    .from("#witch-gallery-left", {
-        
-        duration:1,
-         
-        css: {opacity: 0},
-         ease: "power3.easeIn"
-    });
 
 
 const ta = gsap.timeline({
@@ -661,59 +589,64 @@ const ta = gsap.timeline({
 })
 
 ta
-.to(".flying-witch-holder", {
-        
-        duration:1,
-         
-        css: {translateY: -280+'%', translateX: -150+'%', rotation:30+'deg' },
-         ease: "power3.easeIn"
-    })
+
   
 
     .from(".houses", {
         
         duration:2,
          
-        css: {rotation:180+'deg' },
+        css: {translateY: 150+ "%", rotation:180+'deg' },
          ease: "power3.easeIn"
-    });
+    }, "+=1")
+
+
+    .from(".houses", {
+        
+        duration:2,
+         
+        css: {rotation:270+'deg' },
+         ease: "power3.easeIn"
+    }, "+=2")
+
+.to(".flying-witch-holder", {
+        
+        duration:2,
+         
+        css: {translateY: -80+'%', translateX: -150+'%', rotation:30+'deg' },
+         ease: "power3.easeIn"
+    }, "+=3");
+
+    
 
     const tfaq = gsap.timeline({
   scrollTrigger: {
     trigger: ".section-faq",
     scroller:".smooth-scroll",
-    pin: true,
-    scrub: 1,
+    pin: false,
+    scrub: 0,
     pinSpacing: false,
     start: "top top",
     end: "bottom top"
  
   }
-})
+});
 
-tfaq
 
-.to("#title-faq", {
-        
-        duration:1,
-         
-        css: {translateY: -20+'%'},
-         ease: "power3.easeIn"
-    })
+
+
   
 
     const tf = gsap.timeline({
   scrollTrigger: {
     trigger: ".section-footer",
     scroller:".smooth-scroll",
-    pin: true,
-    scrub: 1,
-    start: "top top",
+    pin: false,
+    scrub: 0,
+    start: "top center",
     end: "bottom bottom",
-    pinSpacing: false,
+    pinSpacing: false
     
-    markers:true,
-    id: "footer"
  
   }
 })
@@ -725,8 +658,8 @@ tf
         
         duration:1,
          
-        css: {translateY: 200+'%'},
-         ease: "elastic.out(1, 0.8)"
+        css: {translateY: 70+'%'},
+         ease: "power3.easeIn"
     })
 
 
@@ -760,6 +693,7 @@ tf
   ScrollTrigger.addEventListener("refresh", () => scroller.update(true));
 
   ScrollTrigger.refresh();
+console.log("I am refreshed");
 
   function unload(){
     scroller.destroy();
@@ -908,10 +842,52 @@ for(let i=0;i<acc.length;i++){
 }
 
 
+var scrollUp = document.querySelector('.nav-inner');
+
+ScrollTrigger.create({
+  scroller: "[data-scroll-container]",
+  start: 'top -50',
+  end: 99999,
+  markers:true,
+  toggleClass: {className: 'jwpnavbar--scrolled', targets: '.nav-inner'}
+});
+
+ScrollTrigger.create({
+  scroller: "[data-scroll-container]",
+  start: 'top -300',
+  end: 99999,
+  toggleClass: {className: 'jwpnavbar--up', targets: '.nav-inner'},
+  onUpdate: ({direction}) => {
+    if (direction == -1) {
+      scrollUp.classList.remove('jwpnavbar--up');
+    } else {
+      scrollUp.classList.add('jwpnavbar--up');
+    }}
+});
+
+const elem = document.querySelectorAll(".nav-inner");
+const classes = ["h1", "a", ".logo"];
+
+function toggleClasses() {
+  classes.forEach(myClass => elem.classList.toggle(myClass) )
+}
+
+gsap.to(classes, {
+    scrollTrigger: {
+    trigger: elem,
+    start: 'top -150',
+    scrub:true
+  },
+  color: '#fff'
+});
 
 
 
 
+$(window).on('load', function(){
+  ScrollTrigger.clearScrollMemory();
+window.history.scrollRestoration = "manual";
+});
 
 
 });

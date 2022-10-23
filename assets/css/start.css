@@ -782,6 +782,8 @@ section:not(.horizontal-scroller) {
   top: 0;
   left: 0;
   width: 100%;
+  align-items: center;
+  transition: all 0.3s;
 }
 .nav-inner ul {
   list-style: none;
@@ -816,7 +818,7 @@ section:not(.horizontal-scroller) {
   width: 60vh;
   height: 60vh;
   border-radius: 50%;
-  background: linear-gradient(0deg, #89c950 40%, #af49ff 60%);
+  background: linear-gradient(45deg, #af49ff 40%, #89c950 60%);
 }
 /*Slider*/
 #slider {
@@ -979,6 +981,7 @@ label {
   height: 100vh !important;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(45deg, #af49ff 40%, #89c950 60%);
 }
 .green {
   overflow: hidden;
@@ -988,6 +991,8 @@ label {
   height: 70px;
   display: flex;
   color: #000000;
+  position: absolute;
+  bottom: 10%;
 }
 .green ul {
   margin: 0;
@@ -1004,13 +1009,14 @@ label {
   margin-left: 5px;
   margin-right: 5px;
   white-space: nowrap;
+  font-weight: 600;
 }
 @keyframes rightToLeft {
   0% {
     transform: translateX(0px);
   }
   100% {
-    transform: translateX(-160px);
+    transform: translateX(-170px);
   }
 }
 @keyframes slightmovement {
@@ -1035,7 +1041,6 @@ label {
   position: relative;
 }
 .flying-witch {
-  position: absolute;
   animation-name: slightmovement;
   animation-duration: 2.5s;
   animation-timing-function: linear;
@@ -1052,14 +1057,14 @@ label {
   justify-content: center;
   overflow: hidden;
   position: relative;
-  background: #72cd21;
+  /*background:@secondarycolor;*/
 }
 .houses {
-  width: 50vw;
+  width: 44vw;
   height: auto;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: -15%;
+  bottom: -50%;
   z-index: -1;
 }
 /*FAQ*/
@@ -1091,6 +1096,7 @@ label {
   align-items: center;
   justify-content: center;
   display: flex;
+  background-color: #063974;
 }
 .section-faq .icon {
   transition: all 0.4s;
@@ -1099,9 +1105,13 @@ label {
 .rotated {
   transform: rotate(90deg);
 }
+#loco-nav {
+  transition: all 0.3s;
+}
 #loco-nav li {
   display: flex;
   padding: 20px;
+  align-items: center;
 }
 #loco-nav li a {
   color: #ffffff;
@@ -1130,6 +1140,11 @@ label {
   height: 100vh;
   bottom: 0;
 }
+.section-footer .hat > div {
+  position: absolute;
+  justify-content: center;
+  bottom: 10%;
+}
 .section-footer .hat > img {
   z-index: -1;
   position: absolute;
@@ -1138,12 +1153,18 @@ label {
   width: auto;
 }
 .section-footer .hat ul {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 .section-footer .hat ul img {
   position: relative;
 }
+.section-footer .hat ul li {
+  text-align: center;
+}
 .section-footer .hat ul li a {
+  text-align: center;
   font-weight: 600;
   color: #ffffff;
 }
@@ -1155,13 +1176,91 @@ label {
   height: 50px;
   background: red;
 }
-#popup {
+.white-popup {
+  position: relative;
+  background: transparent;
+  padding: 25px;
+  width: auto;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.white-popup .popup-content {
   width: 360px;
   height: 360px;
-  position: fixed;
+  position: relative;
   border: solid 20px #72cd21;
   background: #000000;
   color: #ffffff;
   border-radius: 50%;
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform-origin: 50% 50%;
+}
+.white-popup ul {
+  list-style: none;
+}
+.white-popup ul li {
+  display: flex;
+}
+.white-popup .medallion {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.mfp-newspaper {
+  /* start state */
+  /* animate in */
+  /* animate out */
+}
+.mfp-newspaper .mfp-with-anim {
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.5s;
+  transform: scale(0) rotate(500deg);
+}
+.mfp-newspaper.mfp-bg {
+  opacity: 0;
+  transition: all 0.5s;
+}
+.mfp-newspaper.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.mfp-newspaper.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+.mfp-newspaper.mfp-removing .mfp-with-anim {
+  transform: scale(0) rotate(500deg);
+  opacity: 0;
+}
+.mfp-newspaper.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+.slick-initialized .slick-slide {
+  display: block;
+  max-height: 45vh;
+  width: auto !important;
+}
+.logo {
+  display: flex;
+}
+.logo h1 {
+  display: flex;
+  width: 150px;
+  transition: all 0.3s;
+  height: 50px;
+  background: url("../images/logoword.svg") 0 0 no-repeat;
+}
+.jwpnavbar--up {
+  top: -50px;
+  transition: ease 0.4s;
+}
+.jwpnavbar--scrolled {
+  height: 70px;
+  background: #000000;
+}
+.jwpnavbar--scrolled h1 {
+  background: url("../images/logowordwhite.svg") 0 0 no-repeat;
 }

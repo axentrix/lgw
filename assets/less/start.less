@@ -367,7 +367,8 @@ z-index:999;
   top:0;
   left:0;
   width:100%;
-
+  align-items:center;
+  transition:all 0.3s;
 
   ul{
 
@@ -607,7 +608,7 @@ display:flex;
 height:100vh !important;
   align-items:center;
 justify-content:center;
-
+background:@gradient;
 }
 
 .green{
@@ -618,7 +619,8 @@ align-items:center;
   height:70px;
   display:flex;
   color:@black;
-
+position:absolute;
+bottom:10%;
   ul{
     margin:0;
     padding:0;
@@ -633,7 +635,8 @@ align-items:center;
 display:flex;
       margin-left:5px;
       margin-right:5px;
-      white-space: nowrap
+      white-space: nowrap;
+      font-weight:600;
     }
   }
 }
@@ -643,7 +646,7 @@ display:flex;
     transform: translateX(0px);
   }
   100% {
-    transform: translateX(-160px);
+    transform: translateX(-170px);
   }
 }
 
@@ -675,7 +678,7 @@ display:flex;
   position:relative;
 }
 
-.flying-witch{position:absolute;
+.flying-witch{
   animation-name: slightmovement;
   animation-duration: 2.5s;
   animation-timing-function: linear;
@@ -693,15 +696,15 @@ align-items:center;
 justify-content:center;
   overflow:hidden;
   position:relative;
-  background:@secondarycolor;
+  /*background:@secondarycolor;*/
 }
 .houses{
-width: 50vw;
-height:auto;
-position:absolute;
-right:0;
-bottom:0;
-z-index:-1;
+  width: 44vw;
+  height: auto;
+  position: absolute;
+  right: -15%;
+  bottom: -50%;
+  z-index: -1;
 }
 
 
@@ -741,6 +744,8 @@ z-index:-1;
   align-items:center;
   justify-content:center;
   display:flex;
+
+  background-color:#063974;
 .icon{
 transition:all 0.4s;
   display:flex;
@@ -753,10 +758,11 @@ transition:all 0.4s;
 }
 
 #loco-nav{
-
+transition:all 0.3s;
   li 
   {display:flex;
     padding:20px;
+    align-items:center;
     a{
       color:@white;
 transition:all 0.3s;
@@ -788,6 +794,13 @@ align-items:center;
 width:100vw;
 height:100vh;
 bottom:0;
+
+&>div{
+
+  position:absolute;
+justify-content:center;
+  bottom:10%;
+}
 &>img{
 z-index:-1;
   position:absolute;
@@ -796,7 +809,8 @@ z-index:-1;
   width:auto;
 }
 ul{
-
+margin:0;
+padding:0;
   list-style:none;
 
 
@@ -805,8 +819,8 @@ ul{
     position:relative;
   }
 
-  li{
-    a{
+  li{text-align:center;
+    a{text-align:center;
 font-weight:600;
       color:@white;
     }
@@ -826,17 +840,125 @@ font-weight:600;
   }
 
 
-  #popup{
+  
+  .white-popup {
 
+    position: relative;
+    background: transparent;
+    padding: 25px;
+    width:auto;
+    max-width: 400px;
+    margin: 0 auto; 
 
+.popup-content{
+  position:relative;
     width:360px;
     height:360px;
-    position:fixed;
+    position:relative;
     border:solid 20px @secondarycolor;
     background:@black;
     color:@white;
     border-radius:50%;
-    display:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+   transform-origin:50% 50%;
 
+
+}
+
+
+ul{
+  list-style:none;
+  li{
+
+    display:flex;
+
+   
+  }
+}
+
+    .medallion{
+      display:flex;
+      justify-content:center;
+      position:relative;
+    }
+  }
+
+
+  .mfp-newspaper {
+  
+    /* start state */
+    .mfp-with-anim {
+      opacity: 0;
+      -webkit-transition: all 0.2s ease-in-out; 
+      transition: all 0.5s;
+      
+      transform: scale(0) rotate(500deg);
+    }
     
+    &.mfp-bg {
+      opacity: 0;
+      transition: all 0.5s;
+    }
+    
+    /* animate in */
+    &.mfp-ready {
+      .mfp-with-anim {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+      &.mfp-bg {
+        opacity: 0.8;
+      }
+    }
+    
+    /* animate out */
+    &.mfp-removing {
+      
+      .mfp-with-anim {
+        transform: scale(0) rotate(500deg);
+        opacity: 0;
+      }
+      &.mfp-bg {
+        opacity: 0;
+      }
+      
+    }
+    
+  }
+  
+  
+  .slick-initialized .slick-slide {
+    display: block;
+    max-height: 45vh;
+    width: auto !important;
+}
+
+.logo{
+  display:flex;
+  h1{
+
+    display:flex;
+width:150px;
+transition:all 0.3s;
+height:50px;
+  background:url("../images/logoword.svg") 0 0 no-repeat;
+  }
+}
+
+
+.jwpnavbar--up{
+  top: -50px;
+  transition: ease 0.4s;
+}
+.jwpnavbar--scrolled {
+    height: 70px;
+    background: @black;
+h1{
+
+  background:url("../images/logowordwhite.svg") 0 0 no-repeat;
+}
+
   }
