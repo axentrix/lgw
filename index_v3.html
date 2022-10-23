@@ -23,7 +23,17 @@
     <link href="assets/css/start.css" rel="stylesheet">
 </head>
 <body class="loading" id="witch-nft">
-  <div class="nav-inner "> <div class="container d-flex d-row align-items-center justify-content-center"><div class="smooth-logo logo">
+
+
+  <div class="preload d-flex align-items-center">
+   
+    <div class="container d-flex  align-items-center justify-content-center"><img src="assets/images/logo.svg" width="220"></div>
+    
+    
+  </div>
+
+
+  <div class="nav-inner "> <div class="container d-flex d-row align-items-center justify-content-between"><div class="smooth-logo logo">
    
     <h1></h1></div> 
   
@@ -34,14 +44,17 @@
    
 
 
-<li><a href="#">Mint</a></li> 
-<li><a href="#">Purchase Medallion</a></li> 
+<li><a href="#beginning">Mint</a></li> 
+<li><a href="#section-medallion">Purchase Medallion</a></li> 
 <li><a href="#">Witches</a></li>   
 <li><a href="#">About</a></li> 
+<li><a href="#">FAQ</a></li> 
 <li><a href="#" class="btn btn-primary">Connect Wallet</a></li> 
 </ul></div>
 </div>
 </div>
+
+
 
     <div class="smooth-scroll" data-scroll-container>
 
@@ -50,7 +63,7 @@
   
 
 
-<section class="beginning pin-section" data-scroll data-bgcolor="#2B395E">
+<section class="beginning pin-section" id="beginning" data-scroll data-bgcolor="#2B395E">
           
 
 
@@ -80,7 +93,7 @@
      </section>   
     
      
-    <section class="section-medallion">
+    <section class="section-medallion"  id="section-medallion">
       <div class="container d-flex justify-content-center align-items-center">
 
 <div class="row w-100 justify-content-center align-items-center">
@@ -124,7 +137,7 @@
        
 
     </section>  
-    <section class="section-title" data-bgcolor="#8927D6">
+    <section class="section-title" data-bgcolor="#8927D6" id="section-title">
      
 
 <h2 class="stunning-title text-center" id="title-stunning">50+ Stunning Witches</h2>
@@ -191,7 +204,7 @@
 
 
     </section>     
-    <section class="section-witches" data-bgcolor="#6A2A9C">
+    <section class="section-witches" data-bgcolor="#6A2A9C" >
       <div id="witch-gallery">
         <img src="assets/images/witches/1.png">
         <img src="assets/images/witches/2.png">
@@ -252,7 +265,7 @@
 
     </section>  
 
-    <section class="section-about" data-bgcolor="#2DA619">
+    <section class="section-about" data-bgcolor="#2DA619" id="section-about">
 
 
 <div class="houses"><img src="assets/images/houses.svg"></div>
@@ -287,12 +300,14 @@
 
     </section>  
 
-    <section class="section-faq" data-bgcolor="#063974">
+    <section class="section-faq" data-bgcolor="#063974" id="section-faq">
       <div class="container d-flex justify-content-center">
 
 <div class="row w-100 justify-content-center align-items-center">
 
 <div class="col-md-12"><h2 id="title-faq">FAQ</h2></div>
+
+<div class="col-md-6">
 <div class="item-1">
   <div class="accordion">
     <div class="title">How To Install ?</div>
@@ -302,8 +317,18 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem commodi provident modi eligendi consequuntur esse consequatur quis corrupti delectus quas.</p>
   </div>
 </div>
-
-
+</div>
+<div class="col-md-6">
+  <div class="item-1">
+    <div class="accordion">
+      <div class="title">How To Purchase ?</div>
+      <div class="icon"><img src="assets/images/arrow.svg"></div>
+    </div>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem commodi provident modi eligendi consequuntur esse consequatur quis corrupti delectus quas.</p>
+    </div>
+  </div>
+  </div>
 </div>
 
         </div>
@@ -364,8 +389,18 @@
 
     <script>
 $( document ).ready(function () {
+  $('body').addClass('loaded');
+	setTimeout(function() {
+    
+			$('.preload').css({'display':'none'})
+		}, 2000)
+
+  
+
+
+
   TweenObj = {};
-  $('#witch-nft').magnificPopup({
+  $('#section-medallion').magnificPopup({
   delegate: 'a',
   removalDelay: 500, //delay removal by X to allow out-animation
   callbacks: {
@@ -417,22 +452,29 @@ $( document ).ready(function () {
           
 
   const slider= document.querySelector('#process');
-           $('#loco-nav li:nth-child(2) a').on('click', function() {
-   scroller.scrollTo(slider);
+           $('#loco-nav li:nth-child(1) a').on('click', function() {
+   scroller.scrollTo('#beginning');
+  
+});
+$('#loco-nav li:nth-child(2) a').on('click', function() {
+   scroller.scrollTo('#section-medallion');
+  
+});
+$('#loco-nav li:nth-child(3) a').on('click', function() {
+   scroller.scrollTo('#section-title');
+  
+});
+$('#loco-nav li:nth-child(4) a').on('click', function() {
+   scroller.scrollTo('#section-about');
   
 });
 
 
-
-           $('#loco-nav li:nth-child(4) a').on('click', function() {
-   scroller.scrollTo(document.querySelector('#benefits'));
+$('#loco-nav li:nth-child(5) a').on('click', function() {
+   scroller.scrollTo('#section-faq');
   
 });
-const slideri= document.querySelector('#ingredients');
-$('#loco-nav li:nth-child(1) a').on('click', function() {
-   scroller.scrollTo(slideri);
- 
-});
+
 
 
 
@@ -818,6 +860,7 @@ for(let i=0;i<acc.length;i++){
       panel.style.maxHeight=null;
       this.classList.remove('open');
       this.getElementsByClassName('icon')[0].classList.remove ='rotated';
+      
     }
  //if panel is closed, then this block will open it on mouse click
     else{
@@ -836,7 +879,8 @@ for(let i=0;i<acc.length;i++){
       
       panel.style.maxHeight = panel.scrollHeight + 'px';
       this.classList.toggle('open');
-      this.getElementsByClassName('icon')[0].classList.toggle ='rotated'
+      this.getElementsByClassName('icon')[0].classList.toggle ='rotated';
+      console.log(this.getElementsByClassName('icon')[0]);
     }
   })
 }
@@ -848,7 +892,7 @@ ScrollTrigger.create({
   scroller: "[data-scroll-container]",
   start: 'top -50',
   end: 99999,
-  markers:true,
+
   toggleClass: {className: 'jwpnavbar--scrolled', targets: '.nav-inner'}
 });
 
@@ -887,6 +931,12 @@ gsap.to(classes, {
 $(window).on('load', function(){
   ScrollTrigger.clearScrollMemory();
 window.history.scrollRestoration = "manual";
+});
+
+$('#witch-gallery-left').hover(function() {
+  console.log('slider is paused');
+  }, function() {
+  console.log('slider will resume again');
 });
 
 
