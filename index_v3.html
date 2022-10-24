@@ -19,7 +19,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel='stylesheet' id='mdb-css'  href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css?ver=5.9.2' media='all' />
+  
     <link href="assets/css/start.css" rel="stylesheet">
 </head>
 <body class="loading" id="witch-nft">
@@ -38,8 +38,8 @@
     <h1></h1></div> 
   
   
-  
-  <ul id="loco-nav">
+
+  <ul id="loco-nav" class="navbar-collapse collapse">
 
    
 
@@ -49,8 +49,16 @@
 <li><a href="#">Witches</a></li>   
 <li><a href="#">About</a></li> 
 <li><a href="#">FAQ</a></li> 
-<li><a href="#" class="btn btn-primary">Connect Wallet</a></li> 
-</ul></div>
+<li><a href="#" class="btn btn-primary" onclick="connect();">Connect Wallet</a></li> 
+</ul>   
+
+<a href="#" class="btn btn-primary mobile-button" onclick="connect();">Connect Wallet</a>
+
+<button class="navbar-toggler toggler-example" id="maintoggler" type="button" data-toggle="collapse" data-target="#loco-nav" aria-controls="loco-nav" aria-expanded="false" aria-label="Toggle navigation">
+  <div id="nav-icon">
+      <span></span><span></span><span></span>
+  </div></button>
+</div>
 </div>
 </div>
 
@@ -77,12 +85,12 @@
 <div class="col-md-6"><div class="circle"></div>
   <div class="witch"><img src="assets/images/witch.png"></div>
 </div><div class="col-md-6 d-flex align-items-center">
-<div class="content1"> <h1 class="text-white"  id="blending">Mint the Witch</h1>
+<div class="content1"> <h2 class="text-white"  id="blending">Mint the Witch</h2>
 
 <p>Witch Web Info (WIP) is the world's first blockchain based on Global Witches project.
 
 </p><h5>  Select quantity:</h5>
-<div class="d-flex d-row align-items-center">
+<div class="d-flex d-row align-items-center mb-8 slider-holder">
  
 <input id="slider" name="slider" type="range" value=0 min="1" max="10">
 <label for="slider">0</label>
@@ -100,8 +108,8 @@
 
 <div class="col-md-6">
 
-  <div class="content2"> <h1 class="text-white"  id="title-medallion">Purchase Medallion
-    for your Witch</h1>
+  <div class="content2"> <h2 class="text-white"  id="title-medallion">Purchase Medallion
+    for your Witch</h2>
 
     <p>Make your Witch happy and buy unique medailon for her hat. There are only 9 unique medailon in existence at this moment. If you buy one for your witch, nobody could buy the same one.
 
@@ -205,7 +213,7 @@
 
     </section>     
     <section class="section-witches" data-bgcolor="#6A2A9C" >
-      <div id="witch-gallery">
+      <div id="witch-gallery" class="carousel">
         <img src="assets/images/witches/1.png">
         <img src="assets/images/witches/2.png">
         <img src="assets/images/witches/3.png">
@@ -234,7 +242,7 @@
         <img src="assets/images/witches/25.png">
         <img src="assets/images/witches/26.png">
 </div>
-<div id="witch-gallery-left" dir="rtl">
+<div id="witch-gallery-left" dir="rtl" class="carousel">
   <img src="assets/images/witches/27.png">
   <img src="assets/images/witches/28.png">
   <img src="assets/images/witches/29.png">
@@ -268,7 +276,7 @@
     <section class="section-about" data-bgcolor="#2DA619" id="section-about">
 
 
-<div class="houses"><img src="assets/images/houses.svg"></div>
+<div class="houses gs_reveal"><img src="assets/images/houses.svg"></div>
 
 
       <div class="container d-flex justify-content-center">
@@ -277,7 +285,7 @@
 
 <div class="col-md-6">
 
-  <div class="content"> <h1 class="text-white"  id="title-about">About</h1>
+  <div class="content"> <h2 class="text-white"  id="title-about">About</h2>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
@@ -360,7 +368,7 @@
 <div id="popup" class="white-popup mfp-with-anim mfp-hide">
   <div class="popup-content">
   <div class="medallion">
-    <img src="assets/images/medallions/1.png"></div>
+    <img id="medallionload" src="assets/images/medallions/1.png"></div>
   <ul class="nft-features">
     <li>Purchased:<strong>Never</strong></strng></li>
   <li>Price: 0.03⟠</li>
@@ -372,12 +380,13 @@
   </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
-
-      
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
     
         
      
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js?ver=5.9.2' id='mdb-js'></script>
+           
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.js"></script>
@@ -385,7 +394,19 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
+    <script>
+      /* To connect using MetaMask */
+      async function connect() {
+       if (window.ethereum) {
+       
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        window.web3 = new Web3(window.ethereum);
+        
+       } else {
+        console.log("No wallet");
+       }
+      }
+      </script>
 
     <script>
 $( document ).ready(function () {
@@ -393,12 +414,18 @@ $( document ).ready(function () {
 	setTimeout(function() {
     
 			$('.preload').css({'display':'none'})
-		}, 2000)
+		}, 2000);
 
   
 
+    $("#medallionload").attr('src', "assets/images/medallions/" + getRandomImage());
 
 
+    function getRandomImage() {
+  var images = ["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png", "9.png",];
+
+  return images[Math.floor(Math.random() * images.length)];
+}
   TweenObj = {};
   $('#section-medallion').magnificPopup({
   delegate: 'a',
@@ -417,9 +444,16 @@ $( document ).ready(function () {
   const pageContainer = document.querySelector(".smooth-scroll");
   pageContainer.setAttribute("data-scroll-container", "");
 
+
   const scroller = new LocomotiveScroll({
     el: pageContainer,
     smooth: true,
+    
+              smoothMobile: false,
+              smartphone: {
+                  smooth: false,
+                  breakpoint: 991
+              },
     getDirection: true,
     reloadOnContextChange: true
   });
@@ -448,10 +482,16 @@ $( document ).ready(function () {
   });
 
 
-
+  $('#loco-nav li a').on('click', function() {
+  if ($("#loco-nav").hasClass("show")){
+    $('#maintoggler').attr('aria-expanded', 'false');
+    $("#loco-nav").removeClass("show");
+  }
+  
+});
           
 
-  const slider= document.querySelector('#process');
+  
            $('#loco-nav li:nth-child(1) a').on('click', function() {
    scroller.scrollTo('#beginning');
   
@@ -475,21 +515,23 @@ $('#loco-nav li:nth-child(5) a').on('click', function() {
   
 });
 
+var	wideScreen = window.matchMedia("(min-width: 992px)");
+  var	narrowScreen = window.matchMedia("(max-width: 991px)");
 
 
-
- 
-
-
-const tl = gsap.timeline({
+  
+        ScrollTrigger.matchMedia({	
+      // desktop
+      "(min-width: 991px)": function() {
+        const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".beginning",
     scroller:".smooth-scroll",
     pin: true,
     scrub: 1,
     start: "top top",
-    end: "+=100%",
-    //pinSpacing:false,
+    end: "+=50%",
+    pinSpacing:false,
     toggleActions: "play reverse play reverse"
  
   }
@@ -499,65 +541,46 @@ const tl = gsap.timeline({
   
   
   tl
-
-  .to(".content1", {
-        
-        duration:1,
-        
-       css: {translateY:-10+'%'},
-        ease: "power3.easeIn"
-       })
-      
-  .to(".circle", {
-    duration:3,
-    css: { scaleX:160+'%', scaleY:160+'%' },
-    ease: "power3.easeIn"
-  }, "+=1")
-
-  .from(".moon", {
-      
-      duration:1,
-    
-    css: { opacity:0},
-     ease: "power1.easeIn"
-    }, "+=2")
-    .from(".witch", {
-        
-       duration:2,
-       
-      css: {translateY:160+'%', translateX:-50+'%', rotation:10 },
-       ease: "power3.easeIn"
-      }, "+=3")
-
-      .from("#mint-button", {
+  .from("#mint-button", {
         
         duration:3,
         
        css: {rotation:360+'deg'},
         ease: "power5.easeIn"
-       }, "+=4")
+       }, "-=1")
  
-       const tb = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section-medallion-empty",
-    scroller:".smooth-scroll",
-    pin: false,
-    scrub: 1,
-    start: "top bottom",
-    end: "bottom top",
-   //pinSpacing:false
- 
-  }
-})
-
-tb
-.to(".witch", {
+  .to(".content1", {
         
-        duration:1,
-         
-        css: {translateY:160+'%', translateX:-160+'%', rotation:-90+'deg'},
-         ease: "power3.easeIn"
-    });
+        duration:20,
+        
+       css: {opacity:0},
+        ease: "power3.easeIn"
+       }, "+=1")
+       .to(".witch", {
+        
+        duration:2,
+        xPercent: -200,
+        yPercent: 140,
+      
+        ease: "power3.easeIn"
+       }, "+=1")
+  .from(".circle", {
+    duration:3,
+    css: { scaleX:160+'%', scaleY:160+'%' },
+    ease: "power3.easeIn"
+  }, "+=2")
+
+  .to(".moon", {
+      
+      duration:1,
+    
+    css: { opacity:0},
+     ease: "power1.easeIn"
+    }, "+=2");
+   
+
+     
+    
   
 
       const tt = gsap.timeline({
@@ -571,10 +594,8 @@ tb
    //pinSpacing:false
  
   }
-});
+})
 
-
-  
 
 
 
@@ -588,7 +609,7 @@ tb
     scrub: 1,
     start: "top top",
     //pinSpacing:false,
-    end: "bottom top"
+    end: "bottom center"
    
  
   }
@@ -705,10 +726,26 @@ tf
     })
 
 
+      },
 
-  /* COLOR CHANGER */
+      // mobile
+      "(max-width: 992px)": function() {
+        // The ScrollTriggers created inside these functions are segregated and get
+        // reverted/killed when the media query doesn't match anymore. 
 
-  const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
+        ScrollTrigger.saveStyles(".gs_reveal_fromLeft, .gs_reveal_fromRight, .gs_reveal");
+
+        // return function() {
+        //   gsap.kill(); 
+        //   other cleanup code can go here. 
+        // };
+
+
+      },
+
+      // all 
+      "all": function() {
+        const scrollColorElems = document.querySelectorAll("[data-bgcolor]");
   scrollColorElems.forEach((colorSection, i) => {
     const prevBg = i === 0 ? "" : scrollColorElems[i - 1].dataset.bgcolor;
     const prevText = i === 0 ? "" : scrollColorElems[i - 1].dataset.textcolor;
@@ -731,6 +768,22 @@ tf
         })
     });
   });
+      }
+
+    });
+    
+
+
+
+
+ 
+
+
+
+
+  /* COLOR CHANGER */
+
+  
 
   ScrollTrigger.addEventListener("refresh", () => scroller.update(true));
 
@@ -808,9 +861,14 @@ function parallaxIt(e, target, movement) {
 	TweenMax.to(target, 1, { x: posX, y: posY, ease: Power2.easeOut });
 }
 
+var gadgetCarousel = $(".carousel");
+  
+  gadgetCarousel.each(function() {
 
 
-$('#witch-gallery').slick({
+if ($(this).is("#witch-gallery")){
+      $(this).slick({
+      
   slidesToShow: 6,
   slidesToScroll: 1,
   prevArrow: false,
@@ -820,23 +878,70 @@ $('#witch-gallery').slick({
   autoplaySpeed: 0,
   speed: 8000,
   pauseOnHover: true,
-  cssEase: 'linear'
-});
+      pauseOnFocus: true,
+  cssEase: 'linear',
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 6,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+  
+  ],
 
-$('#witch-gallery-left').slick({
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  prevArrow: false,
-    nextArrow: false,
-    arrows:false,
-  autoplay: true,
-  autoplaySpeed: 0,
-  speed: 8000,
-  pauseOnHover: true,
-  rtl: false,
-  rtl: true,
-  cssEase: 'linear'
-});
+})
+    }
+
+    else if($(this).is("#witch-gallery-left")){
+
+      $(this).slick({
+      
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      prevArrow: false,
+        nextArrow: false,
+        arrows:false,
+      autoplay: true,
+      autoplaySpeed: 0,
+      speed: 8000,
+      rtl: true,
+      pauseOnHover: true,
+          pauseOnFocus: true,
+      cssEase: 'linear',
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+      
+      ],
+    
+    })
+
+    }
+   
+
+
+  });
 
 
 // Targetting all the .accordion classes
@@ -933,11 +1038,7 @@ $(window).on('load', function(){
 window.history.scrollRestoration = "manual";
 });
 
-$('#witch-gallery-left').hover(function() {
-  console.log('slider is paused');
-  }, function() {
-  console.log('slider will resume again');
-});
+
 
 
 });
