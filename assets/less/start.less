@@ -789,7 +789,14 @@ display:flex;
   height:100vh;
 display:flex;
 justify-content:center;
+align-items:center;
 position:relative;
+flex-direction:column;
+
+.logo-img{
+
+  max-width:200px;
+}
   .hat{
 
     position:relative;
@@ -1012,7 +1019,9 @@ h1{
 }
 .navbar-toggler #nav-icon {
   width: 40px;
-  height: 50px;
+  height: 40px;
+  justify-content: center;
+    display: flex;
   position: relative;
   margin: 0px auto;
   transform: rotate(0deg);
@@ -1100,7 +1109,7 @@ h1{
 
 }
 
-.section-faq{
+.section-faq, .section-about{
 
   padding-top:88px;
   padding-bottom:88px;
@@ -1244,12 +1253,47 @@ padding-bottom:88px;
 
 
 @media (max-width: 767px) {
+
+  .section-footer .hat{
+    height:auto;
+
+    & > img{
+position:relative;
+    }
+  }
+  .beginning .circle{
+
+    left:0;
+    width:90vw;
+    height:90vw;
+  }
+
+  .beginning .bg-wrap .container{
+
+    padding-top:88px;
+  }
+  .beginning .bg-wrap .moon{
+    z-index:5;
+    top:80px;
+left:5%;
+    img{
+      max-width:180px;
+    }
+  }
   .flying-witch{
     img{
       max-width: 70vw;
       position: relative;
     }
   }
+  .section-footer .hat > img{
+
+    height:400px;
+  }
+  .medallion3 {
+    top: 380px;
+    left: 85px;
+}
   .section-faq{
 
     min-height:unset !important;
@@ -1261,7 +1305,7 @@ padding-bottom:88px;
     }
   }
   #medallion-container {
-    width: 60%;
+    width: 90%;
   }
 .slider-holder{
   justify-content:center;
@@ -1278,18 +1322,34 @@ justify-content:center;
   overflow:hidden;
   position:relative;
 }
+.witch img {
+  max-width: 90vw;
+  height: auto;
+}
+.container {
+  max-width: unset;
+}
+.nav-inner{
 
-
+  padding-left:0;
+  padding-right:0;
+  .btn{
+    padding: 10px 12px;
+    
+  }
+}
 .beginning {
 
 h2{
   margin-top:44px;
 }
-
+.col-md-6{
+  min-height:400px;
+}
 }
 .witch{
 left:unset;
-  position:relative;
+  position:absolute;
   z-index:888;
 }
 h2{

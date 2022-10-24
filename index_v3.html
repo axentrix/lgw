@@ -346,7 +346,7 @@
     </section>  
 
     <section class="section-footer">
-
+      <img src="assets/images/logoblack.svg" class="logo-img mb-8 mt-8">
       <div class="hat"><img src="assets/images/hat.svg">
 <div class="d-flex d-column">
   <ul class="d-flex d-row"><li><a href="#"><img src="assets/images/twitter.svg"></a></li>
@@ -867,6 +867,8 @@ var gadgetCarousel = $(".carousel");
   
   gadgetCarousel.each(function() {
 
+    
+
 
 if ($(this).is("#witch-gallery")){
       $(this).slick({
@@ -874,9 +876,12 @@ if ($(this).is("#witch-gallery")){
   slidesToShow: 6,
   slidesToScroll: 1,
   prevArrow: false,
+  infinite:true,
     nextArrow: false,
     arrows:false,
   autoplay: true,
+  draggable:true,
+  swipe:true,
   autoplaySpeed: 0,
   speed: 8000,
   pauseOnHover: true,
@@ -913,8 +918,11 @@ if ($(this).is("#witch-gallery")){
         nextArrow: false,
         arrows:false,
       autoplay: true,
+      infinite:true,
       autoplaySpeed: 0,
       speed: 8000,
+      draggable:true,
+  swipe:true,
       rtl: true,
       pauseOnHover: true,
           pauseOnFocus: true,
