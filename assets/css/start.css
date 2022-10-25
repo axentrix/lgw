@@ -896,7 +896,6 @@ label {
   flex: none;
   background: #72cd21;
   border-radius: 50%;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   padding: 14px;
   margin-left: 10px;
   font-family: Roboto, 'Helvetica Neue', Arial;
@@ -1460,9 +1459,9 @@ label {
     margin: auto;
   }
   .slick-initialized .slick-slide {
-    display: block;
+    /* display: block;
     max-height: 45vh;
-    width: auto !important;
+    width: auto !important;*/
   }
   .navbar-collapse {
     display: flex !important;

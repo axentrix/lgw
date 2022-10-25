@@ -482,6 +482,9 @@ $( document ).ready(function () {
   });
 
 
+
+
+
   $('#loco-nav li a').on('click', function() {
   if ($("#loco-nav").hasClass("show")){
     $('#maintoggler').attr('aria-expanded', 'false');
@@ -826,6 +829,9 @@ const max = input.max;
     rotation:input.value*100, 
     //rotationY:input.value*360, 
     ease:Power2.easeOut});
+
+    
+  
   console.log('inputValue', value);
 };
  
@@ -871,6 +877,49 @@ var gadgetCarousel = $(".carousel");
 
 
 if ($(this).is("#witch-gallery")){
+
+  var styleBackup = '', restOfTimeout = 500, currentState = '', freeze = false;
+$('#witch-gallery').on('init', function(event, slick, direction){
+  const observer = new MutationObserver(function(mutationsList, observer){
+    for(const mutation of mutationsList) {
+      if (mutation.type === 'attributes' &&  mutation.attributeName == 'style' && freeze) {
+      	$('#witch-gallery .slick-track').css('transform', currentState);
+      }
+    }
+  });
+  observer.observe($('#witch-gallery .slick-track')[0], { attributes: true });
+  $('#witch-gallery .slick-track').mouseover(function() {
+    styleBackup = $('#witch-gallery .slick-track').attr('style');
+    currentState = getComputedStyle($('#witch-gallery .slick-track')[0]).transform;
+    freeze = true;        
+    $('#witch-gallery').slick('slickPause');       
+    let translateDone = parseFloat(currentState.split(',')[4])*(-1);            
+    let regex = /translate3d\(([^,]*),/gm;
+    if((m = regex.exec(styleBackup)) !== null) {
+      let translateNeed = parseFloat(m[1])*(-1);
+      let slideWidth = $('#witch-gallery .slick-slide').first().width();
+      let speed = 5000/slideWidth;
+      restOfTimeout = (translateNeed-translateDone)*speed;   
+      var report = "Should be: "+translateNeed+"\n";
+      report += "Did on hover moment: "+translateDone+"\n";
+      report += "Still has to scroll: "+(translateNeed-translateDone)+"px\n";
+      report += "Speed of scroll: "+speed+"ms\n";
+      report += "Desired timeout: "+restOfTimeout+"ms\n";
+      $('#report').text(report);
+    } else {
+      restOfTimeout = 500;
+    } 
+    $('#witch-gallery .slick-track').css('transform', currentState);        
+  });    
+  $('#witch-gallery .slick-track').mouseout(function() {     
+  	freeze = false;
+    $('#witch-gallery .slick-track').attr('style', styleBackup.replace('5000ms', restOfTimeout+'ms'));
+    $('#witch-gallery').slick('slickPlay');
+  });
+});
+
+
+
       $(this).slick({
       
   slidesToShow: 6,
@@ -883,7 +932,7 @@ if ($(this).is("#witch-gallery")){
   draggable:true,
   swipe:true,
   autoplaySpeed: 0,
-  speed: 8000,
+  speed: 5000,
   pauseOnHover: true,
       pauseOnFocus: true,
   cssEase: 'linear',
@@ -909,6 +958,45 @@ if ($(this).is("#witch-gallery")){
     }
 
     else if($(this).is("#witch-gallery-left")){
+      var styleBackup = '', restOfTimeout = 500, currentState = '', freeze = false;
+$('#witch-gallery-left').on('init', function(event, slick, direction){
+  const observer = new MutationObserver(function(mutationsList, observer){
+    for(const mutation of mutationsList) {
+      if (mutation.type === 'attributes' &&  mutation.attributeName == 'style' && freeze) {
+      	$('#witch-gallery-left .slick-track').css('transform', currentState);
+      }
+    }
+  });
+  observer.observe($('#witch-gallery-left .slick-track')[0], { attributes: true });
+  $('#witch-gallery-left .slick-track').mouseover(function() {
+    styleBackup = $('#witch-gallery-left .slick-track').attr('style');
+    currentState = getComputedStyle($('#witch-gallery-left .slick-track')[0]).transform;
+    freeze = true;        
+    $('#witch-gallery-left').slick('slickPause');       
+    let translateDone = parseFloat(currentState.split(',')[4])*(-1);            
+    let regex = /translate3d\(([^,]*),/gm;
+    if((m = regex.exec(styleBackup)) !== null) {
+      let translateNeed = parseFloat(m[1])*(-1);
+      let slideWidth = $('#witch-gallery-left .slick-slide').first().width();
+      let speed = 5000/slideWidth;
+      restOfTimeout = (translateNeed-translateDone)*speed;   
+      var report = "Should be: "+translateNeed+"\n";
+      report += "Did on hover moment: "+translateDone+"\n";
+      report += "Still has to scroll: "+(translateNeed-translateDone)+"px\n";
+      report += "Speed of scroll: "+speed+"ms\n";
+      report += "Desired timeout: "+restOfTimeout+"ms\n";
+      $('#report').text(report);
+    } else {
+      restOfTimeout = 500;
+    } 
+    $('#witch-gallery-left .slick-track').css('transform', currentState);        
+  });    
+  $('#witch-gallery-left .slick-track').mouseout(function() {     
+  	freeze = false;
+    $('#witch-gallery-left .slick-track').attr('style', styleBackup.replace('5000ms', restOfTimeout+'ms'));
+    $('#witch-gallery-left').slick('slickPlay');
+  });
+});
 
       $(this).slick({
       
@@ -920,7 +1008,7 @@ if ($(this).is("#witch-gallery")){
       autoplay: true,
       infinite:true,
       autoplaySpeed: 0,
-      speed: 8000,
+      speed: 5000,
       draggable:true,
   swipe:true,
       rtl: true,
