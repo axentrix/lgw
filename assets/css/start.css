@@ -774,7 +774,7 @@ section:not(.horizontal-scroller) {
   justify-content: space-between;
   z-index: 999;
   position: fixed;
-  padding: 20px;
+  padding: 10px;
   top: 0;
   left: 0;
   width: 100%;
@@ -782,6 +782,7 @@ section:not(.horizontal-scroller) {
   transition: all 0.3s;
 }
 .nav-inner ul {
+  margin-bottom: 0;
   list-style: none;
   color: #ffffff;
   display: flex;
@@ -1067,12 +1068,18 @@ label {
   z-index: -1;
 }
 /*FAQ*/
+.faq-item {
+  padding: 4px 4px 4px 18px;
+  border-radius: 40px;
+  border: solid 1px #cabfd8;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
 .accordion {
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 22px;
-  margin-bottom: 12px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1144,6 +1151,7 @@ label {
   align-items: center;
   position: relative;
   flex-direction: column;
+  overflow-x: hidden;
 }
 .section-footer .hat {
   position: relative;
@@ -1271,11 +1279,10 @@ label {
   background: url("../images/logoword.svg") 0 0 no-repeat;
 }
 .jwpnavbar--up {
-  top: -50px;
   transition: ease 0.4s;
 }
 .jwpnavbar--scrolled {
-  height: 70px;
+  /* height: 70px;*/
   background: #000000;
 }
 .jwpnavbar--scrolled h1 {
@@ -1292,7 +1299,7 @@ label {
   transition: all 1.5s;
 }
 .loaded .preload {
-  transform: translate(0, 150%);
+  opacity: 0;
 }
 .navbar-toggler {
   padding: 0;
@@ -1396,6 +1403,7 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
   }
   .section-about {
     overflow: unset;

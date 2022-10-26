@@ -44,11 +44,11 @@
    
 
 
-<li><a href="#beginning">Mint</a></li> 
-<li><a href="#section-medallion">Purchase Medallion</a></li> 
-<li><a href="#">Witches</a></li>   
-<li><a href="#">About</a></li> 
-<li><a href="#">FAQ</a></li> 
+<li><a href="#beginning" data-scroll-to>Mint</a></li> 
+<li><a href="#section-medallion" data-scroll-to>Purchase Medallion</a></li> 
+<li><a href="#section-title" data-scroll-to>Witches</a></li>   
+<li><a href="#section-about" data-scroll-to>About</a></li> 
+<li><a href="#section-faq" data-scroll-to>FAQ</a></li> 
 <li><a href="#" class="btn btn-primary" onclick="connect();">Connect Wallet</a></li> 
 </ul>   
 
@@ -92,8 +92,8 @@
 </p><h5>  Select quantity:</h5>
 <div class="d-flex d-row align-items-center mb-8 slider-holder">
  
-<input id="slider" name="slider" type="range" value=0 min="1" max="10">
-<label for="slider">0</label>
+<input id="slider" name="slider" type="range" value=1 min="1" max="10">
+<label for="slider">1</label>
 <a href="#" id="mint-button" class="ml-2"><img src="assets/images/mintnotstarted.svg"></a>
 </div></div></div>
 </div>
@@ -153,60 +153,7 @@
 
 
 
-<div class="green">
 
-<ul>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-  <li>World Wide Witch Collection</li>
-
-  </ul>
-</div>
 
 
 
@@ -316,7 +263,7 @@
 <div class="col-md-12"><h2 id="title-faq">FAQ</h2></div>
 
 <div class="col-md-6">
-<div class="item-1">
+<div class="item-1 faq-item">
   <div class="accordion">
     <div class="title">How To Install ?</div>
     <div class="icon"><img src="assets/images/arrow.svg"></div>
@@ -325,11 +272,29 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem commodi provident modi eligendi consequuntur esse consequatur quis corrupti delectus quas.</p>
   </div>
 </div>
+<div class="item-3 faq-item ">
+  <div class="accordion">
+    <div class="title">How To Connect My Wallet ?</div>
+    <div class="icon"><img src="assets/images/arrow.svg"></div>
+  </div>
+  <div class="panel">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem commodi provident modi eligendi consequuntur esse consequatur quis corrupti delectus quas.</p>
+  </div>
+</div>
 </div>
 <div class="col-md-6">
-  <div class="item-1">
+  <div class="item-2 faq-item">
     <div class="accordion">
       <div class="title">How To Purchase ?</div>
+      <div class="icon"><img src="assets/images/arrow.svg"></div>
+    </div>
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem commodi provident modi eligendi consequuntur esse consequatur quis corrupti delectus quas.</p>
+    </div>
+  </div>
+  <div class="item-4 faq-item">
+    <div class="accordion">
+      <div class="title">How To Mint ?</div>
       <div class="icon"><img src="assets/images/arrow.svg"></div>
     </div>
     <div class="panel">
@@ -410,11 +375,12 @@
 
     <script>
 $( document ).ready(function () {
+  $('body').removeClass('loading');
   $('body').addClass('loaded');
 	setTimeout(function() {
     
-			$('.preload').css({'display':'none'})
-		}, 2000);
+			$('.preload').css({'display':'none', 'z-index':'-10'})
+		}, 600);
 
   
 
@@ -494,29 +460,7 @@ $( document ).ready(function () {
 });
           
 
-  
-           $('#loco-nav li:nth-child(1) a').on('click', function() {
-   scroller.scrollTo('#beginning');
-  
-});
-$('#loco-nav li:nth-child(2) a').on('click', function() {
-   scroller.scrollTo('#section-medallion');
-  
-});
-$('#loco-nav li:nth-child(3) a').on('click', function() {
-   scroller.scrollTo('#section-title');
-  
-});
-$('#loco-nav li:nth-child(4) a').on('click', function() {
-   scroller.scrollTo('#section-about');
-  
-});
 
-
-$('#loco-nav li:nth-child(5) a').on('click', function() {
-   scroller.scrollTo('#section-faq');
-  
-});
 
 var	wideScreen = window.matchMedia("(min-width: 992px)");
   var	narrowScreen = window.matchMedia("(max-width: 991px)");
@@ -526,6 +470,11 @@ var	wideScreen = window.matchMedia("(min-width: 992px)");
         ScrollTrigger.matchMedia({	
       // desktop
       "(min-width: 991px)": function() {
+
+
+
+
+
         const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".beginning",
@@ -535,7 +484,7 @@ var	wideScreen = window.matchMedia("(min-width: 992px)");
     start: "top top",
     end: "+=50%",
     pinSpacing:false,
-    toggleActions: "play reverse play reverse"
+    toggleActions: "play complete reverse reset"
  
   }
 });
@@ -651,7 +600,8 @@ const ta = gsap.timeline({
     scrub: 1,
     //pinSpacing:true,
     start: "top top",
-    end: "bottom top"
+    end: "bottom top",
+    toggleActions: "play reset play complete"
  
   }
 })
@@ -693,7 +643,7 @@ ta
     scroller:".smooth-scroll",
     pin: false,
     scrub: 0,
-    pinSpacing: false,
+    //pinSpacing: false,
     start: "top top",
     end: "bottom top"
  
@@ -713,22 +663,48 @@ ta
     scrub: 0,
     start: "top center",
     end: "bottom bottom",
-    pinSpacing: false
+    //pinSpacing: false
     
  
   }
 })
 
 
-tf
+//tf
 
-.from(".hat", {
+//.from(".hat", {
         
-        duration:1,
+     //   duration:1,
          
-        css: {translateY: 70+'%'},
-         ease: "power3.easeIn"
-    })
+     //   css: {translateY: 70+'%'},
+     //    ease: "power3.easeIn"
+   // })
+
+
+   function animateMe(mytimeline) {
+    
+  
+    mytimeline.reversed() ? mytimeline.play() : mytimeline.reverse();
+ }
+ 
+
+
+
+  $("#loco-nav li a").click (function(e) {
+  e.preventDefault()
+  let target = e.target.getAttribute("href")
+  console.log(target)
+  scroller.scrollTo(target);
+
+
+  if(target="#beginning"){   console.log(target); 
+    tl.pause(0).kill(true);
+    
+    //animateMe(tl);
+  
+  }
+
+})
 
 
       },
@@ -793,7 +769,7 @@ tf
   ScrollTrigger.addEventListener("refresh", () => scroller.update(true));
 
   ScrollTrigger.refresh();
-console.log("I am refreshed");
+
 
   function unload(){
     scroller.destroy();
