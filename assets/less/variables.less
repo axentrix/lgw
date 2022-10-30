@@ -54,6 +54,27 @@ button{
 a:hover, a:focus{
     text-decoration:none;
 }
+
+.btn-fab{
+
+    border-radius:50%;
+    width:80px;
+    height:80px;
+    position:relative;
+    z-index:40;
+    color:@white;
+    background:@maincolor;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+&:hover{
+
+    background:darken(@maincolor, 10%);
+}
+
+}
 .btn-info{background:transparent !important;
              border:solid 1px @white;
              color:@white;

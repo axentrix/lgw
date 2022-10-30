@@ -66,6 +66,23 @@ a:hover,
 a:focus {
   text-decoration: none;
 }
+.btn-fab {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  z-index: 40;
+  color: #ffffff;
+  background: #af49ff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.btn-fab:hover {
+  background: #9916ff;
+}
 .btn-info {
   background: transparent !important;
   border: solid 1px #ffffff;

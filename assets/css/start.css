@@ -66,6 +66,23 @@ a:hover,
 a:focus {
   text-decoration: none;
 }
+.btn-fab {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  z-index: 40;
+  color: #ffffff;
+  background: #af49ff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.btn-fab:hover {
+  background: #9916ff;
+}
 .btn-info {
   background: transparent !important;
   border: solid 1px #ffffff;
@@ -844,7 +861,7 @@ input[type="range"]::-moz-range-thumb {
   width: 70px;
   background-color: transparent;
   background-image: url("../images/sliderbutton.png");
-  background-position: 0 0;
+  background-position: -15px 0;
   background-size: cover;
   transform: scale(1.9) rotateZ(var(--thumb-rotate, 10deg));
   cursor: pointer;
@@ -869,20 +886,22 @@ input[type="range"]::-moz-range-progress {
 }*/
 input[type="range"]::-webkit-slider-thumb {
   border: none;
-  height: 70px;
-  width: 70px;
+  height: 100px;
+  width: 90px;
   background-color: transparent;
   background-image: url("../images/sliderbutton.png");
   background-position: 0 0;
-  background-size: cover;
-  transform: scale(1.9) rotateZ(var(--thumb-rotate, 10deg));
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transform: scale(1) rotateZ(var(--thumb-rotate, 0deg));
   cursor: pointer;
   margin-top: -15px;
   -webkit-appearance: none;
 }
 input[type="range"]::-webkit-slider-thumb:active {
+  transition: all 0.3s;
   background-position: 100% 0px;
-  transform: scale(2) rotateZ(var(--thumb-rotate, 10deg));
+  transform: scale(1.3) rotateZ(var(--thumb-rotate, 0deg));
 }
 /*input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
@@ -899,7 +918,6 @@ label {
   border-radius: 50%;
   padding: 14px;
   margin-left: 10px;
-  font-family: Roboto, 'Helvetica Neue', Arial;
   font-size: 20px;
   width: 65px;
   height: 65px;
@@ -1036,10 +1054,6 @@ label {
   justify-content: center;
   flex-direction: column;
 }
-.section-witches {
-  height: 100vh;
-  position: relative;
-}
 .flying-witch {
   animation-name: slightmovement;
   animation-duration: 2.5s;
@@ -1050,11 +1064,7 @@ label {
   transform: translate(0, 0);
 }
 .section-about {
-  display: flex;
-  width: 100%;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   position: relative;
   /*background:@secondarycolor;*/
@@ -1426,11 +1436,6 @@ label {
   .container {
     max-width: 95%;
   }
-  #mint-button img {
-    transform-origin: 50% 50%;
-    width: 85px;
-    height: 85px;
-  }
   #slider {
     width: 50%;
   }
@@ -1460,6 +1465,10 @@ label {
   }
 }
 @media (min-width: 992px) {
+  .carousel {
+    overflow-y: hidden;
+    max-height: 40vh;
+  }
   section:not(.horizontal-scroller) {
     min-height: 100vh;
     width: 100%;
@@ -1570,4 +1579,48 @@ label {
   .content1 {
     align-items: center;
   }
+}
+.stunning-title {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.smooth-scroll {
+  overflow-y: hidden !important;
+}
+.section-witches {
+  overflow: hidden;
+  min-height: 100vh;
+}
+svg#circletext {
+  fill: currentColor;
+  height: auto;
+  max-width: 100vmin;
+  transform-origin: center;
+  width: 100%;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+}
+#mint-button {
+  width: 168px;
+  height: 168px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#mint-button svg {
+  position: absolute;
+  z-index: 18;
+}
+#mint-button a {
+  position: relative;
+  z-index: 19;
+}
+#mint-button a.disabled {
+  cursor: poiner;
+  opacity: 0.4;
+}
+#mint-button a.disabled:hover {
+  unset: all;
 }

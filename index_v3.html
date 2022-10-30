@@ -46,7 +46,7 @@
 
 <li><a href="#beginning" data-scroll-to>Mint</a></li> 
 <li><a href="#section-medallion" data-scroll-to>Purchase Medallion</a></li> 
-<li><a href="#section-title" data-scroll-to>Witches</a></li>   
+<li><a href="#section-witches" data-scroll-to>Witches</a></li>   
 <li><a href="#section-about" data-scroll-to>About</a></li> 
 <li><a href="#section-faq" data-scroll-to>FAQ</a></li> 
 <li><a href="#" class="btn btn-primary" onclick="connect();">Connect Wallet</a></li> 
@@ -60,7 +60,7 @@
   </div></button>
 </div>
 </div>
-</div>
+
 
 
 
@@ -94,7 +94,25 @@
  
 <input id="slider" name="slider" type="range" value=1 min="1" max="10">
 <label for="slider">1</label>
-<a href="#" id="mint-button" class="ml-2"><img src="assets/images/mintnotstarted.svg"></a>
+<div id="mint-button"> <svg viewBox="0 0 100 100" width="100" height="100" id="circletext">
+  <defs>
+    <path id="circle"
+      d="
+        M 50, 50
+        m -37, 0
+        a 37,37 0 1,1 74,0
+        a 37,37 0 1,1 -74,0"/>
+  </defs>
+  <text>
+    <textPath xlink:href="#circle">
+    .Mint not started.Stay Alert.Coming Soon
+    </textPath>
+  </text>
+</svg>
+<a href="#" class="btn-fab disabled">
+ 
+Mint for Free
+</a></div>
 </div></div></div>
 </div>
 </div></div><div class="section-medallion-empty"></div>
@@ -145,57 +163,48 @@
        
 
     </section>  
-    <section class="section-title" data-bgcolor="#8927D6" id="section-title">
+    <section class="section-witches" data-bgcolor="#8927D6" id="section-witches" >
      
+<div class="container"><div class="row"><div class="col-md-12"><h2 class="stunning-title1 text-center   mt-8 mb-8" id="title-stunning1">50+ Stunning Witches</h2></div></div></div>
 
-<h2 class="stunning-title text-center" id="title-stunning">50+ Stunning Witches</h2>
+  
+<div id="witch-gallery" class="carousel">
+  <img src="assets/images/witches/1.png">
+  <img src="assets/images/witches/2.png">
+  <img src="assets/images/witches/3.png">
+  <img src="assets/images/witches/4.png">
+  <img src="assets/images/witches/5.png">
+  <img src="assets/images/witches/6.png">
+  <img src="assets/images/witches/7.png">
+  <img src="assets/images/witches/8.png">
+  <img src="assets/images/witches/9.png">
 
-
-
-
-
-
-
-
-
-    </section>     
-    <section class="section-witches" data-bgcolor="#6A2A9C" >
-      <div id="witch-gallery" class="carousel">
-        <img src="assets/images/witches/1.png">
-        <img src="assets/images/witches/2.png">
-        <img src="assets/images/witches/3.png">
-        <img src="assets/images/witches/4.png">
-        <img src="assets/images/witches/5.png">
-        <img src="assets/images/witches/6.png">
-        <img src="assets/images/witches/7.png">
-        <img src="assets/images/witches/8.png">
-        <img src="assets/images/witches/9.png">
-
-        <img src="assets/images/witches/10.png">
-        <img src="assets/images/witches/11.png">
-        <img src="assets/images/witches/12.png">
-        <img src="assets/images/witches/13.png">
-        <img src="assets/images/witches/14.png">
-        <img src="assets/images/witches/15.png">
-        <img src="assets/images/witches/16.png">
-        <img src="assets/images/witches/17.png">
-        <img src="assets/images/witches/18.png">
-        <img src="assets/images/witches/19.png">
-        <img src="assets/images/witches/20.png">
-        <img src="assets/images/witches/21.png">
-        <img src="assets/images/witches/22.png">
-        <img src="assets/images/witches/23.png">
-        <img src="assets/images/witches/24.png">
-        <img src="assets/images/witches/25.png">
-        <img src="assets/images/witches/26.png">
+  <img src="assets/images/witches/10.png">
+  <img src="assets/images/witches/11.png">
+  <img src="assets/images/witches/12.png">
+  <img src="assets/images/witches/13.png">
+  <img src="assets/images/witches/14.png">
+  <img src="assets/images/witches/15.png">
+  <img src="assets/images/witches/16.png">
+  <img src="assets/images/witches/17.png">
+  <img src="assets/images/witches/18.png">
+  <img src="assets/images/witches/19.png">
+  <img src="assets/images/witches/20.png">
+  <img src="assets/images/witches/21.png">
+  <img src="assets/images/witches/22.png">
+  <img src="assets/images/witches/23.png">
+  <img src="assets/images/witches/24.png">
+  <img src="assets/images/witches/25.png">
+  <img src="assets/images/witches/26.png">
 </div>
+
 <div id="witch-gallery-left" dir="rtl" class="carousel">
   <img src="assets/images/witches/27.png">
   <img src="assets/images/witches/28.png">
   <img src="assets/images/witches/29.png">
   <img src="assets/images/witches/30.png">
   <img src="assets/images/witches/31.png">
-
+  
   <img src="assets/images/witches/32.png">
   <img src="assets/images/witches/33.png">
   <img src="assets/images/witches/34.png">
@@ -215,15 +224,15 @@
   <img src="assets/images/witches/48.png">
   <img src="assets/images/witches/49.png">
   <img src="assets/images/witches/50.png">
- 
-</div>
+  
+  </div>
 
-    </section>  
+ </section>
 
     <section class="section-about" data-bgcolor="#2DA619" id="section-about">
 
 
-<div class="houses gs_reveal"><img src="assets/images/houses.svg"></div>
+<div class="houses"><img src="assets/images/houses.svg"></div>
 
 
       <div class="container d-flex justify-content-center">
@@ -349,13 +358,15 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
     
-        
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+type="application/javascript"></script>
      
            
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
@@ -546,51 +557,21 @@ var	wideScreen = window.matchMedia("(min-width: 992px)");
    //pinSpacing:false
  
   }
-})
-
-
-
-
-
-
-  const ttw = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section-title",
-    scroller:".smooth-scroll",
-    pin: true,
-    scrub: 1,
-    start: "top top",
-    //pinSpacing:false,
-    end: "bottom center"
-   
- 
-  }
 });
-ttw
 
-  .from("#title-stunning", {
-    duration:1,
-    scale: 2.25,
 
-   
-    ease: "power3.easeIn"
-  });
-  
-const ww = gsap.timeline({
+const tss = gsap.timeline({
   scrollTrigger: {
     trigger: ".section-witches",
     scroller:".smooth-scroll",
     pin: false,
     scrub: 1,
     start: "top top",
-  
-    end: "bottom top"
- 
+    end: "bottom top",
+  pinSpacing:false
+   
   }
 });
-
-
-
 
 const ta = gsap.timeline({
   scrollTrigger: {
@@ -598,13 +579,13 @@ const ta = gsap.timeline({
     scroller:".smooth-scroll",
     pin: true,
     scrub: 1,
-    //pinSpacing:true,
+   //pinSpacing:false,
     start: "top top",
-    end: "bottom top",
-    toggleActions: "play reset play complete"
+    end: "bottom top"
+    //toggleActions: "play reset play complete"
  
   }
-})
+});
 
 ta
 
@@ -614,7 +595,7 @@ ta
         
         duration:2,
          
-        css: {translateY: 150+ "%", rotation:180+'deg' },
+        css: {rotation:180+'deg' },
          ease: "power3.easeIn"
     }, "+=1")
 
@@ -637,48 +618,6 @@ ta
 
     
 
-    const tfaq = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section-faq",
-    scroller:".smooth-scroll",
-    pin: false,
-    scrub: 0,
-    //pinSpacing: false,
-    start: "top top",
-    end: "bottom top"
- 
-  }
-});
-
-
-
-
-  
-
-    const tf = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section-footer",
-    scroller:".smooth-scroll",
-    pin: false,
-    scrub: 0,
-    start: "top center",
-    end: "bottom bottom",
-    //pinSpacing: false
-    
- 
-  }
-})
-
-
-//tf
-
-//.from(".hat", {
-        
-     //   duration:1,
-         
-     //   css: {translateY: 70+'%'},
-     //    ease: "power3.easeIn"
-   // })
 
 
    function animateMe(mytimeline) {
@@ -690,7 +629,7 @@ ta
 
 
 
-  $("#loco-nav li a").click (function(e) {
+  $("#loco-nav li a").not('.btn').click (function(e) {
   e.preventDefault()
   let target = e.target.getAttribute("href")
   console.log(target)
@@ -792,7 +731,7 @@ input.addEventListener("input", event => {
   const min = input.min;
 const max = input.max;
   
-  input.style.setProperty("-thumb-rotate", `${value * 720}deg`);
+  input.style.setProperty("thumb-rotate", `${value * 360}deg`);
   label.innerHTML = Math.round(value * 100);
 
  
@@ -802,7 +741,7 @@ const max = input.max;
 
 
   TweenMax.to("#mint-button", .3, {
-    rotation:input.value*100, 
+    rotation:input.value*360, 
     //rotationY:input.value*360, 
     ease:Power2.easeOut});
 
