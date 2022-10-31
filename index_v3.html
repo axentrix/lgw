@@ -49,10 +49,25 @@
 <li><a href="#section-witches" data-scroll-to>Witches</a></li>   
 <li><a href="#section-about" data-scroll-to>About</a></li> 
 <li><a href="#section-faq" data-scroll-to>FAQ</a></li> 
-<li><a href="#" class="btn btn-primary" onclick="connect();">Connect Wallet</a></li> 
+<li><a href="#popup-connect" class="btn btn-primary" data-effect="mfp-zoom-in" id="metaMask-button">Connect Wallet</a> 
+  
+  
+  <div id="dropdown" class="white-popup mfp-with-anim mfp-hide">
+    <div class="popup-content p-4">
+      <h3 class="mb-6 mt-2" id="metaMask"></h3>
+<ul>
+<li class="d-flex align-items-center"> <span class="d-inline-flex" id="walletaddress"></span><a href="#" id="copyaddress" class="ml-3 d-inline-flex btn btn-info">Copy</a></li>
+<li id="myTokens"></li>
+<li id="myTokensBalance"></li>
+</ul>
+      
+    </div></div>
+  
+
+</li> 
 </ul>   
 
-<a href="#" class="btn btn-primary mobile-button" onclick="connect();">Connect Wallet</a>
+<a href="#popup-connect" class="btn btn-primary mobile-button" data-effect="mfp-zoom-in">Connect Wallet</a>
 
 <button class="navbar-toggler toggler-example" id="maintoggler" type="button" data-toggle="collapse" data-target="#loco-nav" aria-controls="loco-nav" aria-expanded="false" aria-label="Toggle navigation">
   <div id="nav-icon">
@@ -92,7 +107,7 @@
 </p><h5>  Select quantity:</h5>
 <div class="d-flex d-row align-items-center mb-8 slider-holder">
  
-<input id="slider" name="slider" type="range" value=1 min="1" max="10">
+<input id="numTokens" name="slider" type="range" value=1 min="1" max="10">
 <label for="slider">1</label>
 <div id="mint-button"> <svg viewBox="0 0 100 100" width="100" height="100" id="circletext">
   <defs>
@@ -109,7 +124,7 @@
     </textPath>
   </text>
 </svg>
-<a href="#" class="btn-fab disabled">
+<a href="#" class="btn-fab disabled" id="MintButton">
  
 Mint for Free
 </a></div>
@@ -133,7 +148,7 @@ Mint for Free
 
     
     </p>
-    <a href="#popup"class="btn btn-secondary open-popup-link" data-effect="mfp-newspaper">Purchase Medallion</a>
+    <a href="#popup"class="btn btn-secondary open-popup-link" data-effect="mfp-newspaper" id="MedallionList">Purchase Medallion</a>
     </div>
 
 </div>
@@ -344,22 +359,72 @@ Mint for Free
   <div class="medallion">
     <img id="medallionload" src="assets/images/medallions/1.png"></div>
   <ul class="nft-features">
-    <li>Purchased:<strong>Never</strong></strng></li>
-  <li>Price: 0.03⟠</li>
-  <li><a href="#" class="btn btn-primary">Buy Now</a></li>
+    <li id="boughtAddon"></li>
+  
+  <li><span id="addonPrice1"></span>⟠</li>
+  <li><span id="addonPrice2"></span>⟠</li>
+  <li id="addonsList"></li>
+  <li id="boughtAddon"></li>
+
+  <li class="d-flex justify-content-center"><a href="#" class="btn btn-primary" id="buyAddon">Buy Now</a></li>
   </ul>
   
   </div>
   
   </div>
+
+
+  <div id="popup-connect" class="white-popup mfp-with-anim mfp-hide">
+    <div class="popup-content"><h3 class="mb-6 mt-2">Connect a Wallet</h3>
+    <button class="btn btn-info mb-6" onclick="getMyAddress();" id="ButtonConnect"> <div class="metamask-logo"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 46.5 43.8" style="enable-background:new 0 0 46.5 43.8;" xml:space="preserve">
+   <style type="text/css">
+     .st0{fill:#E17726;stroke:#E17726;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st1{fill:#E27625;stroke:#E27625;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st2{fill:#D5BFB2;stroke:#D5BFB2;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st3{fill:#233447;stroke:#233447;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st4{fill:#CC6228;stroke:#CC6228;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st5{fill:#E27525;stroke:#E27525;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st6{fill:#F5841F;stroke:#F5841F;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st7{fill:#C0AC9D;stroke:#C0AC9D;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st8{fill:#161616;stroke:#161616;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+     .st9{fill:#763E1A;stroke:#763E1A;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;}
+   </style>
+   <path class="st0" d="M43.3,1L25.9,13.9l3.2-7.6L43.3,1z"/>
+   <path class="st1" d="M3.2,1l17.2,13l-3.1-7.7L3.2,1z M37,30.8l-4.6,7.1l9.9,2.7l2.8-9.6C45.1,31,37,30.8,37,30.8z M1.4,31l2.8,9.6
+     l9.9-2.7l-4.6-7.1C9.5,30.8,1.4,31,1.4,31z"/>
+   <path class="st1" d="M13.5,18.9L10.8,23l9.8,0.4l-0.3-10.5L13.5,18.9L13.5,18.9z M33,18.9l-6.8-6.1l-0.2,10.7l9.8-0.4
+     C35.7,23,33,18.9,33,18.9z M14.1,37.9L20,35l-5.1-4L14.1,37.9z M26.5,35l5.9,2.9L31.6,31C31.6,31,26.5,35,26.5,35z"/>
+   <path class="st2" d="M32.4,37.9L26.5,35l0.5,3.8l-0.1,1.6L32.4,37.9z M14.1,37.9l5.5,2.6l0-1.6L20,35L14.1,37.9z"/>
+   <path class="st3" d="M19.7,28.5l-4.9-1.4l3.5-1.6L19.7,28.5L19.7,28.5z M26.8,28.5l1.5-3l3.5,1.6L26.8,28.5L26.8,28.5z"/>
+   <path class="st4" d="M14.1,37.9l0.9-7.1L9.5,31C9.5,31,14.1,37.9,14.1,37.9z M31.6,30.8l0.8,7.1L37,31L31.6,30.8z M35.7,23l-9.8,0.4
+     l0.9,5l1.5-3l3.5,1.6C31.8,27.1,35.7,23,35.7,23z M14.8,27.1l3.5-1.6l1.4,3l0.9-5L10.8,23L14.8,27.1z"/>
+   <path class="st5" d="M10.8,23l4.1,8l-0.1-4C14.8,27.1,10.8,23,10.8,23z M31.8,27.1l-0.2,4l4.1-8C35.7,23,31.8,27.1,31.8,27.1z
+      M20.6,23.5l-0.9,5l1.2,5.9l0.3-7.8L20.6,23.5z M25.9,23.5l-0.5,3.1l0.2,7.8l1.2-5.9L25.9,23.5L25.9,23.5z"/>
+   <path class="st6" d="M26.8,28.5l-1.2,5.9l0.8,0.6l5.1-4l0.2-4L26.8,28.5z M14.8,27.1l0.1,4l5.1,4l0.8-0.6l-1.2-5.9L14.8,27.1
+     L14.8,27.1z"/>
+   <path class="st7" d="M26.9,40.5l0-1.6l-0.4-0.4H20l-0.4,0.4l0,1.6l-5.5-2.6l1.9,1.6l3.9,2.7h6.7l3.9-2.7l1.9-1.6L26.9,40.5
+     L26.9,40.5z"/>
+   <path class="st8" d="M26.5,35l-0.8-0.6h-4.8L20,35l-0.5,3.8l0.4-0.4h6.6l0.4,0.4L26.5,35L26.5,35z"/>
+   <path class="st9" d="M44,14.7l1.5-7.1L43.3,1L26.5,13.4l6.5,5.4l9.1,2.7l2-2.3l-0.9-0.6l1.4-1.3l-1.1-0.8l1.4-1.1L44,14.7L44,14.7z
+      M1,7.6l1.5,7.1l-1,0.7l1.4,1.1l-1.1,0.8l1.4,1.3l-0.9,0.6l2,2.3l9.1-2.6l6.5-5.5L3.2,1L1,7.6z"/>
+   <path class="st6" d="M42.1,21.5L33,18.9l2.8,4.1l-4.1,8L37,31h8.1L42.1,21.5z M13.5,18.9l-9.1,2.7l-3,9.4h8.1l5.4,0.1l-4.1-8
+     L13.5,18.9L13.5,18.9z M25.9,23.5l0.6-10.1l2.6-7.1H17.3l2.6,7.1l0.6,10.1l0.2,3.1v7.8h4.9l0-7.8C25.7,26.6,25.9,23.5,25.9,23.5z"/>
+   </svg></div><span>MetaMask</span></button>
+   
+    </div>
+    
+    </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>-->
+
+<script type="text/javascript" src="https://cdn-cors.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
     
-<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
-type="application/javascript"></script>
+<!-- <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+type="application/javascript"></script> -->
      
            
       
@@ -370,24 +435,189 @@ type="application/javascript"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+   
+    
+    <script src="w-utils.js"></script>
+    
+
     <script>
-      /* To connect using MetaMask */
-      async function connect() {
-       if (window.ethereum) {
-       
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        window.web3 = new Web3(window.ethereum);
+
+      if (window.ethereum) {
+          metaMask.innerHTML = "MetaMask installed";
         
-       } else {
-        console.log("No wallet");
-       }
+
+
+
+
+      } else {
+          metaMask.innerHTML = "Please install Metamask";
       }
-      </script>
+  
+    
+  
+      <!-- List of tokens I own -->
+      MintButton.addEventListener('click', event => {
+          console.log("clicked on getListOfMyTokens");
+          
+         
+         
+      });
+  
+      const srcValue= getRandomImage();
+      const medallionbuy="assets/images/medallions/" + srcValue;
+          const setRandomImage=srcValue.charAt(0);
+      
+  
+      <!--  Get how much the addon will cost -->
+      MedallionList.addEventListener('click', event => {
+          console.log("clicked on getAddonPrice");
+          let a = getNextAddonPrice().then(a => {
+              console.log("Next token price: " + a.toString());
+              addonPrice1.innerText = "Next addon price (in wei): " + a;
+              addonPrice2.innerText = "Next addon price (in eth): " + ethers.utils.formatEther(a);
+          });
+
+          let b = getAddons().then(b => {
+            console.log("List of addons: " + b.toString());
+            addonsList.innerText = "List of addons to be bought: " + b.toString();
+        });
+
+        boughtAddon.innerText = setRandomImage;
+    $("#medallionload").attr('src', medallionbuy);
+
+      });
+
+
+      buyAddon.addEventListener('click', event => {
+         
+         console.log("addon for token ID: " + setRandomImage);
+       
+ 
+ 
+ 
+           let a = purchaseAddon(setRandomImage).then(a => {
+            console.log("Purchased delka: " + setRandomImage);
+             
+         });
+ 
+ 
+       });
+ 
+         
+  
+      <!-- Mint NFT tokens -->
+      MintButton.addEventListener('click', event => {
+          console.log("clicked on mintTokens");
+          console.log("to Mint: #" + document.getElementById("numTokens").value);
+          let a = mintToken(document.getElementById("numTokens").value).then(a => {
+              //console.log("Minted delka: " + a.length);
+              mintedTokens.innerText = a.toString();
+          });
+
+        
+
+      });
+  
+
+   
+
+
+      <!-- Shows list of addons, which people can buy -->
+     
+
+
+
+
+      <!-- Get my eth address -->
+
+
+      const getMyAddress = async () => {
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          await provider.send("eth_requestAccounts", []);
+          const accounts = await provider.listAccounts();
+          const signer = await provider.getSigner(accounts[0]);
+          const addr = await signer.getAddress();
+          
+if(addr){
+  console.log("My address: " + addr);
+ 
+
+
+  document.getElementById("metaMask-button").href="#dropdown";
+  document.getElementById("metaMask-button").innerHTML=addr.slice(0,8)+"...";
+          document.getElementById("metaMask-button").classList.add('address');
+  let b = isMintOpen().then(b => {
+              console.log("Is open: " + b.toString());
+             
+          });
+   
+          let c = getBalanceOf().then(c => {
+              console.log("Number of tokens I have: " + c.toString());
+              myTokensBalance.innerText = "# of tokens I have: " + c;
+          });
+
+          let d = getMyTokens().then(d => {
+              console.log("List of my tokens: " + d.toString());
+              myTokens.innerText = "List of my tokens: " + d.toString();
+ });
+
+
+
+ walletaddress.innerHTML="Address: "+addr;
+
+
+ document.getElementById("copyaddress").addEventListener("click", function () {
+let input = addr;
+
+
+var range = document.createRange();
+ range.selectNode(document.getElementById("walletaddress"));
+ window.getSelection().removeAllRanges(); // clear current selection
+ window.getSelection().addRange(range); // to select text
+ document.execCommand("copy");
+ window.getSelection().removeAllRanges();// to deselect
+
+document.getElementById("walletaddress").classList.add("active");
+document.getElementById("copyaddress").innerHTML="Copied";
+window.getSelection().removeAllRanges();
+setTimeout(function () {
+document.getElementById("walletaddress").classList.remove("active");
+document.getElementById("copyaddress").innerHTML="Copy";
+}, 2500);
+});
+
+}
+else{
+  document.getElementById("#metaMask-button").href="#popup-connect";
+}
+         
+         // myAddress.innerHTML = "My eth address is: " + addr;
+       
+    
+         
+      };
+
+      
+
+function getRandomImage() {
+var images = ["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png", "9.png",];
+
+return images[Math.floor(Math.random() * images.length)];
+}    
+  
+  </script>
+  
+
+
 
     <script>
 $( document ).ready(function () {
   $('body').removeClass('loading');
   $('body').addClass('loaded');
+
+  getMyAddress();
+
+
 	setTimeout(function() {
     
 			$('.preload').css({'display':'none', 'z-index':'-10'})
@@ -395,17 +625,21 @@ $( document ).ready(function () {
 
   
 
-    $("#medallionload").attr('src', "assets/images/medallions/" + getRandomImage());
-
-
-    function getRandomImage() {
-  var images = ["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png", "9.png",];
-
-  return images[Math.floor(Math.random() * images.length)];
-}
   TweenObj = {};
   $('#section-medallion').magnificPopup({
   delegate: 'a',
+  removalDelay: 500, //delay removal by X to allow out-animation
+  callbacks: {
+    beforeOpen: function() {
+       this.st.mainClass = this.st.el.attr('data-effect');
+    }
+  },
+  midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+});
+
+
+$('#loco-nav').magnificPopup({
+  delegate: 'a.btn',
   removalDelay: 500, //delay removal by X to allow out-animation
   callbacks: {
     beforeOpen: function() {
